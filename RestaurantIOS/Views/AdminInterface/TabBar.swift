@@ -15,9 +15,9 @@ struct TabBar: View {
     var body: some View {
         TabView {
             NavigationView {
-                MenuAdminView()
+//                MenuAdminView()
             }
-            MenuAdminView()
+//            MenuAdminView()
                 .tabItem {
                     Image(systemName: "menucard")
                     Text("Меню")

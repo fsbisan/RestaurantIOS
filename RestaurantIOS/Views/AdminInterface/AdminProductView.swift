@@ -6,19 +6,43 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AdminProductView: View {
+    
     @State private var title: String = ""
     @State private var price: Int?
     @State private var category: Category = .first
     @State private var description: String = ""
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var data: Data?
     
     var body: some View {
         VStack{
-            Image(systemName: "camera")
-                .resizable()
-                .frame(width: 240, height: 200)
-                .scaledToFit()
+            PhotosPicker(selection: $selectedItem) {
+                if let data {
+                    Image(uiImage: UIImage(data: data)!)
+                        .resizable()
+                        .frame(width: 240, height: 200)
+                        .scaledToFill()
+                } else {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .frame(width: 240, height: 200)
+                        .scaledToFill()
+                }
+            }.onChange(of: selectedItem) { newValue in
+                guard let selectedItem else { return }
+                
+                selectedItem.loadTransferable(type: Data.self) { result in
+                    switch result {
+                    case .success(let success):
+                        if let success { self.data = success }
+                    case .failure(let failure):
+                        print("данные не найдены\(failure)")
+                    }
+                }
+            }
             
             TextField("Название", text: $title)
                 .padding().background(.white)
@@ -54,7 +78,7 @@ struct AdminProductView: View {
                     .foregroundColor(.white)
                     .bold()
             }
-
+            
         }
         .frame(maxHeight: .infinity)
         .background(Color("lightGray"))

@@ -11,6 +11,7 @@ struct EmployeeSignView: View {
     @State private var login: String = ""
     @State private var password: String = ""
     @State private var showAdminMenu = false
+    @State private var user: User?
     
     var body: some View {
         HStack {
@@ -37,6 +38,14 @@ struct EmployeeSignView: View {
                     .background(.white)
                     .font(.title3)
                 Button {
+                    Task {
+                        do {
+                            self.user = try await NetworkService.shared.auth(login: login, password: password)
+                            self.showAdminMenu.toggle()
+                        } catch {
+                            print("обработать ошибки")
+                        }
+                    }
                     showAdminMenu.toggle()
                 } label: {
                     Text("Войти!")
@@ -49,7 +58,7 @@ struct EmployeeSignView: View {
             .padding(.horizontal, 50)
         }
         .fullScreenCover(isPresented: $showAdminMenu) {
-            MenuAdminView()
+            MenuAdminView(user: $user)
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922E808729C95DA3008E4672 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922E808629C95DA3008E4672 /* NetworkService.swift */; };
+		922E808929C95E5C008E4672 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922E808829C95E5C008E4672 /* User.swift */; };
 		92E2DBDE29C8227C006C6C32 /* RestaurantIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2DBDD29C8227C006C6C32 /* RestaurantIOSApp.swift */; };
 		92E2DBE029C8227C006C6C32 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2DBDF29C8227C006C6C32 /* ContentView.swift */; };
 		92E2DBE229C8227D006C6C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2DBE129C8227D006C6C32 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		922E808629C95DA3008E4672 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		922E808829C95E5C008E4672 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		92E2DBDA29C8227C006C6C32 /* RestaurantIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2DBDD29C8227C006C6C32 /* RestaurantIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantIOSApp.swift; sourceTree = "<group>"; };
 		92E2DBDF29C8227C006C6C32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +50,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		922E808A29C96097008E4672 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				922E808829C95E5C008E4672 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		922E808B29C9609E008E4672 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				922E808629C95DA3008E4672 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		92E2DBD129C8227C006C6C32 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +87,8 @@
 			children = (
 				92E2DBDD29C8227C006C6C32 /* RestaurantIOSApp.swift */,
 				92E2DBF529C82CB6006C6C32 /* Product.swift */,
+				922E808A29C96097008E4672 /* Model */,
+				922E808B29C9609E008E4672 /* Service */,
 				92E2DBF129C82B14006C6C32 /* Views */,
 				92E2DBE129C8227D006C6C32 /* Assets.xcassets */,
 				92E2DBE329C8227D006C6C32 /* Preview Content */,
@@ -87,8 +109,8 @@
 			children = (
 				92E2DBDF29C8227C006C6C32 /* ContentView.swift */,
 				92E2DBEB29C82298006C6C32 /* AuthView.swift */,
-				92E2DBF429C82BEF006C6C32 /* AdminInterface */,
 				92E2DBED29C828B8006C6C32 /* EmployeeSignView.swift */,
+				92E2DBF429C82BEF006C6C32 /* AdminInterface */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922E808729C95DA3008E4672 /* NetworkService.swift in Sources */,
 				92E2DBF029C82B00006C6C32 /* MenuAdminView.swift in Sources */,
 				92E2DBE029C8227C006C6C32 /* ContentView.swift in Sources */,
 				92E2DBEE29C828B8006C6C32 /* EmployeeSignView.swift in Sources */,
@@ -183,6 +206,7 @@
 				92E2DBEC29C82298006C6C32 /* AuthView.swift in Sources */,
 				92E2DBFA29C83353006C6C32 /* AdminProductView.swift in Sources */,
 				92E2DBF629C82CB6006C6C32 /* Product.swift in Sources */,
+				922E808929C95E5C008E4672 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

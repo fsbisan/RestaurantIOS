@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuAdminView: View {
     
     @State private var showProductView = false
+    @Binding var user: User?
     
     var body: some View {
         List {
@@ -50,12 +51,15 @@ struct MenuAdminView: View {
             .sheet(isPresented: $showProductView) {
                 AdminProductView()
             }
+            .onAppear {
+                print(user?.login ?? "Пользователь не найден")
+            }
     }
 }
 
 struct MenuAdminView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuAdminView()
+        MenuAdminView(user: .constant(nil))
     }
 }
 
